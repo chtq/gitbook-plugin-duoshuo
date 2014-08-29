@@ -1,8 +1,8 @@
 module.exports = {
     book: {
-        assets: "./book",
+        assets: "./duoshuo",
         js: [
-            "plugin.js"
+            "duoshuo.js"
         ]
     }
 };
