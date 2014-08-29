@@ -4,14 +4,12 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         var stylesheetURL = getStylesheetURL();
         DUOSHUO.injectStylesheet(stylesheetURL);
 
-        setTimeout(function(){
-            var threadId = location.pathname.replace(/\//g,'-');
-            var duoshuoDiv = document.createElement('div');
-            duoshuoDiv.setAttribute('data-thread-key', threadId);
-            duoshuoDiv.setAttribute('data-url', location.href);
-            DUOSHUO.EmbedThread(duoshuoDiv);
-            $(".book-body .page-inner").append(duoshuoDiv);
-        },1000)
+        var threadId = location.pathname.replace(/\//g,'-');
+        var duoshuoDiv = document.createElement('div');
+        duoshuoDiv.setAttribute('data-thread-key', threadId);
+        duoshuoDiv.setAttribute('data-url', location.href);
+        DUOSHUO.EmbedThread(duoshuoDiv);
+        $(".book-body .page-inner").append(duoshuoDiv);
     }
 
     var getStylesheetURL = function() {
