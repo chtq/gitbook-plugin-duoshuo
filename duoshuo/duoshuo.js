@@ -5,6 +5,9 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         DUOSHUO.injectStylesheet(stylesheetURL);
 
         var threadId = location.pathname.replace(/\//g,'-');
+        if (threadId.charAt(threadId.length - 1) == '-') {
+            threadId = threadId + 'index.html';
+        }
         var duoshuoDiv = document.createElement('div');
         duoshuoDiv.setAttribute('data-thread-key', threadId);
         duoshuoDiv.setAttribute('data-url', location.href);
