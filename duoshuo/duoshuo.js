@@ -12,7 +12,9 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         duoshuoDiv.setAttribute('data-thread-key', threadId);
         duoshuoDiv.setAttribute('data-url', location.href);
         DUOSHUO.EmbedThread(duoshuoDiv);
-        $(".book-body .page-inner").append(duoshuoDiv);
+        $(".book-body .page-inner").append('<div id="comment-box"></div>');
+        $("#comment-box").append(duoshuoDiv);
+        DUOSHUO.ThreadCount(duoshuoDiv ,{"type": "EmbedThread"});
     }
 
     var getStylesheetURL = function() {
@@ -48,7 +50,6 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     });
 
     gitbook.events.bind("page.change", function(e){
-        console.log('change')
         loadDuoshuoScript()
     });
 
