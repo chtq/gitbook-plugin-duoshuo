@@ -5,6 +5,13 @@ A comment hosting service for Web sites and online communities that uses a netwo
 
 多说平台的gitbook插件，给gitbook集成评论功能
 
+how to install
+--------------
+
+```shell
+npm install gitbook-plugin-duoshuo
+```
+
 how to use
 ----------
 
