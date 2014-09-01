@@ -15,7 +15,6 @@
     "bugs": {
         "url": "https://github.com/codepiano/gitbook-plugin-duoshuo/issues"
     },
-    "readme": "gitbook-plugin-duoshuo\n======================\n\na comment hosting service for Web sites and online communities that uses a networked platform. \n\n多说平台的gitbook插件，给gitbook集成评论功能\n\nhow to use\n----------\n",
     "keywords": [
         "gitbook",
         "duoshuo",
