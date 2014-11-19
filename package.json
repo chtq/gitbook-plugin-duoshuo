@@ -2,9 +2,9 @@
     "name": "gitbook-plugin-duoshuo",
     "description": "gitbook plugin for duoshuo,a comment hosting service for online communities",
     "main": "index.js",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "engines": {
-        "gitbook": ">=1.0.0"
+        "gitbook": "*"
     },
     "homepage": "https://github.com/codepiano/gitbook-plugin-duoshuo",
     "repository": {
