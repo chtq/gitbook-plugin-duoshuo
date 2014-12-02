@@ -1,5 +1,6 @@
 gitbook-plugin-duoshuo
 ======================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/codepiano/gitbook-plugin-duoshuo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Duoshuo is a comment hosting service for Web sites and online communities that uses a networked platform.
 
