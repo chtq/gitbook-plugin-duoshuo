@@ -1,8 +1,10 @@
 require(["gitbook", "jQuery"], function(gitbook, $) {
 
+    var root = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+
     var loadDuoshuoDynamic = function() {
         var stylesheetURL = getStylesheetURL();
-        DUOSHUO.injectStylesheet(stylesheetURL);
+        injectStylesheet(stylesheetURL);
 
         var threadId = location.pathname.replace(/\//g,'-');
         if (threadId.charAt(threadId.length - 1) == '-') {
@@ -15,7 +17,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         $(".book-body .page-inner").append('<div id="comment-box"></div>');
         $("#comment-box").append(duoshuoDiv);
         DUOSHUO.ThreadCount(duoshuoDiv ,{"type": "EmbedThread"});
-    }
+    };
 
     var getStylesheetURL = function() {
         if (duoshuoQuery.stylesheet) {
@@ -31,8 +33,16 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             "dark": "c11b5925",
             "bluebox": "dbc0a9af"
         };
-        return staticPath + "/styles/embed" + (theme ? "." + theme + ".css?" + themeCode[theme] : "." + duoshuoQuery.short_name) + ".css"
-    }
+        return staticPath + "/styles/embed" + (theme ? "." + theme + ".css?" + themeCode[theme] : "." + duoshuoQuery.short_name) + ".css";
+    };
+
+    var injectStylesheet = function(url) {
+        var styleNode = document.createElement("link");
+        styleNode.type = "text/css";
+        styleNode.rel = "stylesheet";
+        styleNode.href = url;
+        root.appendChild(styleNode);
+    };
 
     var loadDuoshuoScript = function() {
         var ds = document.createElement('script');
@@ -41,16 +51,16 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
         ds.async = true;
         ds.charset = 'UTF-8';
         ds.src = document.location.protocol + '//static.duoshuo.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    }
+        root.appendChild(ds);
+    };
 
     gitbook.events.bind("start", function(e, config){
         window.duoshuoQuery = config.duoshuo || {};
-        document.location.protocol == 'https:' ? 'https:' : 'http:';
+        document.location.protocol = 'https:' ? 'https:' : 'http:';
     });
 
     gitbook.events.bind("page.change", function(e){
-        loadDuoshuoScript()
+        loadDuoshuoScript();
     });
 
 });
