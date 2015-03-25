@@ -56,7 +56,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
 
     gitbook.events.bind("start", function(e, config){
         window.duoshuoQuery = config.duoshuo || {};
-        document.location.protocol = 'https:' ? 'https:' : 'http:';
+        (document.location.protocol == 'https:') ? 'https:' : 'http:';
     });
 
     gitbook.events.bind("page.change", function(e){
